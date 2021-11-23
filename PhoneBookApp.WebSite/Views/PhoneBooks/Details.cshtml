@@ -1,0 +1,54 @@
+﻿@model PhoneBookApp.WebSite.Models.PhoneBook
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Полное описание</h1>
+
+<div>
+    <h4>Телефонная книга</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Фамилия
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            Имя
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            Отчество
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+        <dt class = "col-sm-2">
+            Номер телефона
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            Адрес
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            Описание
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Редактирование</a> |
+    <a asp-action="Index">Основная страница</a>
+</div>

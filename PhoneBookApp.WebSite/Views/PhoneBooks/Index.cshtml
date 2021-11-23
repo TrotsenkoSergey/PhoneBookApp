@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PhoneBookApp.WebSite.Models.PhoneBook>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Телефонная книга</h1>
+
+<p>
+    <a asp-action="Create">Создать запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Номер Id
+            </th>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Имя
+            </th>
+            <th>
+                Отчество
+            </th>
+            <th></th> @* заголовок для ссылок ( Вывести полные данные | Удалить ) *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@item.Id </a><i>ред</i>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MiddleName)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Вывести полные данные</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
