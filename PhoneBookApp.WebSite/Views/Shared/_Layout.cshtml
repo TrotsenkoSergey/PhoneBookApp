@@ -1,0 +1,54 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+    @* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">*@
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="container">
+    <nav class="navbar navbar-light bg-light">
+        <div>
+
+            @{
+                @if (User.Identity.IsAuthenticated) //(User.IsInRole("Admin"))
+                {
+                    <div class="btn-group" style="width: 650px;">
+                        <a class="navbar-brand" href="~/">В начало</a>
+                        <a class="navbar-brand" href="/PhoneBooks/Create">Добавить новую запись</a>
+
+                        <a class="navbar-brand" herf="#">@User.Identity.Name в системе</a>
+                        <form method="post" asp-controller="Account" asp-action="Logout" id="logoutform" asp-antiforgery="true">
+                            @*<input type="submit" value="Выход"/>*@
+                            <a class="navbar-brand" href="#" onclick="document.getElementById('logoutform').submit()">Выход</a>
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <div class="btn-group pull-right">
+                        <a class="navbar-brand" href="~/">В начало</a>
+                        <a class="navbar-brand" href="/Account/Login">Вход</a>
+                        <a class="navbar-brand" href="/Account/Register">Регистрация </a>
+                    </div>
+                }
+            }
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <style>
+        .container {
+            padding-top: 10px;
+        }
+
+        .validation-summary-errors {
+            color: #f00;
+        }
+    </style>
+</body>
+</html>

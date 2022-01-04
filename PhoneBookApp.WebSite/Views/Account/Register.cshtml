@@ -1,0 +1,67 @@
+﻿@model PhoneBookApp.WebSite.AuthModels.UserRegistration
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 well">
+            <h3 class="text-center">Регистрация</h3>
+
+            <form asp-action="Register" asp-antiforgery="true" class="form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <input asp-for="LoginProp" class="form-control" placeholder="Логин" />
+                        <span asp-validation-for="LoginProp" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <input asp-for="Password" class="form-control" placeholder="Пароль" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Подтверждение пароля" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <input asp-for="EmailAddress" class="form-control" placeholder="Адрес электронной почты" />
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <input asp-for="ConfirmEmailAddress" class="form-control" placeholder="Подтверждение адреса электронной почты" />
+                        <span asp-validation-for="ConfirmEmailAddress" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" asp-for="IsRemembered" class="form-check-input" id="flexCheckDefault" />
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Запомнить меня
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center col-xs-12">
+                    <button type="submit" class="btn btn-default">Зарегистрироваться</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

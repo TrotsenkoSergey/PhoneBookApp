@@ -1,4 +1,4 @@
-﻿@model PhoneBookApp.WebSite.Models.PhoneBook
+﻿@model DataAccess.Models.PhoneBook
 
 @{
     ViewData["Title"] = "Edit";
@@ -50,10 +50,6 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Основная страница</a>
-</div>
-
-@section Scripts {
+@*@section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+}*@
